@@ -1,0 +1,8 @@
+# .env
+.env
+
+# domains
+domains.txt
+
+# misc
+.DS_Store

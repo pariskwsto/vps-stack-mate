@@ -1,2 +1,3 @@
 # vps-stack-mate
-Easy VPS Deployment tool with Nginx Reverse Proxy, SSL, and Docker Compose services
+
+> Easy VPS deployment tool with Nginx Reverse Proxy, SSL, and Docker Compose services
