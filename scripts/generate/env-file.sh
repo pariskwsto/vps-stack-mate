@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Run 'generate-env-file' command"
+source utils/logger.sh
 
 MATE_DOMAINS_FILE="domains.txt"
 MATE_NGINX_CONF_DIR=nginx/conf
@@ -13,19 +13,23 @@ CERTBOT_DATA_PATH="certbot/data"
 CERTBOT_LETSENCRYPT_RSA_KEY_SIZE=4096
 CERTBOT_LETSENCRYPT_STAGING=0
 
+logger CMD "Run 'generate-env-file' command"
+
 if [ -f ".env" ]
 then
-  read -p "The file '.env' already exists. Do you want to generate a new one? (y/n): " GENERATE_NEW
+  logger DECISION "The file '.env' already exists. Do you want to generate a new one? (y/n): "
+  read -p "" GENERATE_NEW
   if [ "$GENERATE_NEW" == "y" ]
   then
     rm .env
   else
-    echo "Keeping existing '.env' file."
+    logger INFO "Keeping existing '.env' file..."
     exit 0
   fi
 fi
 
-read -p "Enter your email address for Certbot: " CERTBOT_LETSENCRYPT_EMAIL
+logger DECISION "Enter your email address for Certbot: "
+read -p "" CERTBOT_LETSENCRYPT_EMAIL
 
 cat <<EOF >.env
 # vps-stack-mate config variables
@@ -48,4 +52,4 @@ CERTBOT_LETSENCRYPT_RSA_KEY_SIZE=$CERTBOT_LETSENCRYPT_RSA_KEY_SIZE
 CERTBOT_LETSENCRYPT_STAGING=$CERTBOT_LETSENCRYPT_STAGING
 EOF
 
-echo "The file '.env' has been generated successfully."
+logger SUCCESS "The file '.env' has been generated successfully."

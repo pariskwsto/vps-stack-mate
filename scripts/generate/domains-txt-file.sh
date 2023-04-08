@@ -1,17 +1,19 @@
 #!/bin/bash
 
 source .env
+source utils/logger.sh
 
-echo "Run 'generate-domains-txt-file' command"
+logger CMD "Run 'generate-domains-txt-file' command"
 
 if [ -f "$MATE_DOMAINS_FILE" ]
 then
-  read -p "The file '$MATE_DOMAINS_FILE' already exists. Do you want to generate a new one? (y/n): " GENERATE_NEW
+  logger DECISION "The file '$MATE_DOMAINS_FILE' already exists. Do you want to generate a new one? (y/n): "
+  read -p "" GENERATE_NEW
   if [ "$GENERATE_NEW" == "y" ]
   then
     rm "$MATE_DOMAINS_FILE"
   else
-    echo "Keeping existing '$MATE_DOMAINS_FILE' file."
+    logger INFO "Keeping existing '$MATE_DOMAINS_FILE' file..."
     exit 0
   fi
 fi
@@ -23,4 +25,4 @@ do
   echo "$domain" >> "$MATE_DOMAINS_FILE"
 done
 
-echo "The file '$MATE_DOMAINS_FILE' has been generated successfully."
+logger SUCCESS "The file '$MATE_DOMAINS_FILE' has been generated successfully."
