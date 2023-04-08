@@ -7,7 +7,7 @@ This repository includes all the necessary files and configurations for a quick 
 ## Contents
 
 - [Getting Started](#getting-started)
-  - [Install and Use](#getting-started)
+  - [Install and Use](#install-and-use)
   - [Make scripts executable (if needed)](#make-scripts-executable-if-needed)
   - [Generate the configuration files](#generate-the-configuration-files)
   - [Deploy the stack](#deploy-the-stack)
@@ -42,21 +42,19 @@ $ chmod +x mate.sh && chmod -R +x scripts/
 
 ### 3. Generate the configuration files
 
-<small>Type the command below to generate the `.env` and `domains.txt` files.</small>
+<small>Type the command below to generate the `.env` and `domains.json` files.</small>
 
 ```sh
 $ ./mate.sh generate-all-config-files
 
 # `.env` needs your email for the SSL certificates
-# update the new `domains.txt` file with your domains list
+# update the new `domains.json` file with your domains list
 ```
 
-<small>Example of `domains.txt` file:</small>
+<small>Example of `domains.json` file:</small>
 
-```domains.txt
-example.com
-subdomain.example.com
-api.example.com
+```domains.json
+["example.com", "subdomain.example.com"]
 ```
 
 ### 4. Deploy the stack
@@ -68,15 +66,16 @@ $ ./mate.sh deploy-stack
 
 ## API
 
-| Command                                  | Description                                                                                          |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `$ ./mate.sh generate-env-file`          | Generate the `.env` file with SSL email configuration.                                               |
-| `$ ./mate.sh generate-domains-txt-file`  | Generate the `domains.txt` file with the list of domains and subdomains to be used in the VPS stack. |
-| `$ ./mate.sh generate-all-config-files`  | Generate both `.env` and `domains.txt` files at once.                                                |
-| `$ ./mate.sh deploy-domains`             | Setup domains and subdomains for the VPS stack using Nginx reverse proxy.                            |
-| `$ ./mate.sh deploy-services`            | Deploy the Docker Compose services for the VPS stack.                                                |
-| `$ ./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                                                  |
-| `$ ./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                                                            |
+| Command                                  | Description                                                                                           |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `$ ./mate.sh generate-env-file`          | Generate the `.env` file with SSL email configuration.                                                |
+| `$ ./mate.sh generate-domains-file`      | Generate the `domains.json` file with the list of domains and subdomains to be used in the VPS stack. |
+| `$ ./mate.sh generate-all-config-files`  | Generate both `.env` and `domains.json` files at once.                                                |
+| `$ ./mate.sh deploy-domains`             | Setup domains and subdomains for the VPS stack using Nginx reverse proxy.                             |
+| `$ ./mate.sh deploy-services`            | Deploy the Docker Compose services for the VPS stack.                                                 |
+| `$ ./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                                                   |
+| `$ ./mate.sh clean-stack`                | Remove all config files                                                                               |
+| `$ ./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                                                             |
 
 ## License
 
@@ -85,3 +84,7 @@ This repository is licensed under the [MIT License](https://opensource.org/licen
 ## Support
 
 For support and questions, please open an issue in the repository or contact the designer directly.
+
+## Useful Links
+
+- [Adding colors to Bash scripts](https://dev.to/ifenna__/adding-colors-to-bash-scripts-48g4/)

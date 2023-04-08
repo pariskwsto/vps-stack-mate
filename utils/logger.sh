@@ -25,10 +25,11 @@ function logger {
 
   case $type in
     CMD) color_code=$Light_Cyan;;
+    SUB_CMD) color_code=$Magenta;;
     DECISION) color_code=$Light_Yellow;;
+    SUCCESS) color_code=$Green;;
     ERROR) color_code=$Red;;
     INFO) color_code=$Gray;;
-    SUCCESS) color_code=$Green;;
     URL) color_code=$Magenta;;
     *) color_code=$White;;
   esac
