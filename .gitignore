@@ -1,0 +1,14 @@
+# certbot
+certbot/data
+
+# nginx
+nginx/conf.d
+
+# .env
+.env
+
+# domains
+domains.json
+
+# misc
+.DS_Store
