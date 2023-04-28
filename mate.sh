@@ -12,6 +12,9 @@ Deploy stack commands:
   deploy-services                         Deploy the Docker-compose services for Mate
   deploy-stack                            Deploy the VPS stack
 
+Reload stack commands:
+  reload-domains                          Reload all domains and subdomains nginx conf files
+
 Available commands:
   clean-stack                             Remove all config files
 
@@ -50,12 +53,17 @@ then
   scripts/deploy/domains.sh "${@:2}"
   scripts/deploy/services.sh "${@:2}"
 
+# reload stack commands
+elif [ "$1" == "reload-domains" ]
+then
+  scripts/reload/domains.sh "${@:2}"
+
 # clean stack command
 elif [ "$1" == "clean-stack" ]
 then
   rm -rf certbot nginx/conf.d .env domains.json
 
 else
-    echo "Invalid command. Use './mate.sh --help' to see available commands."
-    exit 1
+  echo "Invalid command. Use './mate.sh --help' to see available commands."
+  exit 1
 fi

@@ -74,6 +74,7 @@ $ ./mate.sh deploy-stack
 | `$ ./mate.sh deploy-domains`             | Setup domains and subdomains for the VPS stack using Nginx reverse proxy. |
 | `$ ./mate.sh deploy-services`            | Deploy the Docker Compose services for the VPS stack.                     |
 | `$ ./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                       |
+| `$ ./mate.sh reload-domains`             | Reload all domains and subdomains nginx conf files.                       |
 | `$ ./mate.sh clean-stack`                | Remove all the config files                                               |
 | `$ ./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                                 |
 
