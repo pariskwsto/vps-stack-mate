@@ -14,6 +14,7 @@ Deploy stack commands:
 
 Reload stack commands:
   reload-domains                          Reload all domains and subdomains nginx conf files
+  reload-service                          Reload a service to fix an issue or get the latest version of the image
   reload-stack                            Redeploy all services and reload all domains
 
 Available commands:
@@ -58,6 +59,10 @@ then
 elif [ "$1" == "reload-domains" ]
 then
   scripts/reload/domains.sh "${@:2}"
+
+elif [ "$1" == "reload-service" ]
+then
+  scripts/reload/service.sh "${@:2}"
 
 elif [ "$1" == "reload-stack" ]
 then
