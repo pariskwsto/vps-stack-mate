@@ -134,18 +134,19 @@ $ ./mate.sh reload-stack
 
 ## API
 
-| Command                                  | Description                                                            |
-| ---------------------------------------- | ---------------------------------------------------------------------- |
-| `$ ./mate.sh generate-env-file`          | Generate the `.env` file with SSL email configuration.                 |
-| `$ ./mate.sh generate-domains-file`      | Generate the `domains.json` file with the domains and subdomains list. |
-| `$ ./mate.sh generate-config-files`      | Generate all config files at once.                                     |
-| `$ ./mate.sh deploy-domains`             | Setup domains and subdomains (+SSL certificates).                      |
-| `$ ./mate.sh deploy-services`            | Deploy the Docker Compose services.                                    |
-| `$ ./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                    |
-| `$ ./mate.sh reload-domains`             | Reload all domains and subdomains nginx conf files.                    |
-| `$ ./mate.sh reload-stack`               | Redeploy all services and reload all domains.                          |
-| `$ ./mate.sh clean-stack`                | Remove all the config files.                                           |
-| `$ ./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                              |
+| Command                                  | Description                                                              |
+| ---------------------------------------- | ------------------------------------------------------------------------ |
+| `$ ./mate.sh generate-env-file`          | Generate the `.env` file with SSL email configuration.                   |
+| `$ ./mate.sh generate-domains-file`      | Generate the `domains.json` file with the domains and subdomains list.   |
+| `$ ./mate.sh generate-config-files`      | Generate all config files at once.                                       |
+| `$ ./mate.sh deploy-domains`             | Setup domains and subdomains (+SSL certificates).                        |
+| `$ ./mate.sh deploy-services`            | Deploy the Docker Compose services.                                      |
+| `$ ./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                      |
+| `$ ./mate.sh reload-domains`             | Reload all domains and subdomains nginx conf files.                      |
+| `$ ./mate.sh reload-service`             | Reload a service to fix an issue or get the latest version of the image. |
+| `$ ./mate.sh reload-stack`               | Redeploy all services and reload all domains.                            |
+| `$ ./mate.sh clean-stack`                | Remove all the config files.                                             |
+| `$ ./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                                |
 
 ## License
 
