@@ -21,34 +21,36 @@ This repository includes all the necessary files and configurations for a quick 
 
 ### Install and Use
 
-<small>Start by cloning this repository in your VPS</small>
+Start by cloning this repository in your VPS
 
 ```sh
 # via HTTPS
-$ git clone https://github.com/pariskwsto/vps-stack-mate.git
+git clone https://github.com/pariskwsto/vps-stack-mate.git
 ```
 
-<small>then</small>
+then
 
 ```sh
 # cd into project root
-$ cd vps-stack-mate
+cd vps-stack-mate
 ```
 
 ### Make scripts executable (if needed)
 
 ```sh
 # make `mate.sh` and `scripts/` executable
-$ chmod +x mate.sh && chmod -R +x scripts/
+chmod +x mate.sh && chmod -R +x scripts/
 ```
 
 ### Generate the configuration files
 
-<small>Type the command below to generate the `.env` and `domains.json` files.</small>
+Type the command below to generate the `.env` and `domains.json` files.
 
 ```sh
-$ ./mate.sh generate-config-files
+./mate.sh generate-config-files
+```
 
+```sh
 # The generation of the `.env` file will ask for your email
 # It will be used for SSL certificates
 
@@ -68,7 +70,7 @@ $ nano domains.json
 
 ```sh
 # Type the command below to deploy the stack
-$ ./mate.sh deploy-stack
+./mate.sh deploy-stack
 ```
 
 ### Continue with your setup
@@ -129,24 +131,24 @@ server {
 - redeploy the stack
 
 ```sh
-$ ./mate.sh reload-stack
+./mate.sh reload-stack
 ```
 
 ## API
 
-| Command                                  | Description                                                              |
-| ---------------------------------------- | ------------------------------------------------------------------------ |
-| `$ ./mate.sh generate-env-file`          | Generate the `.env` file with SSL email configuration.                   |
-| `$ ./mate.sh generate-domains-file`      | Generate the `domains.json` file with the domains and subdomains list.   |
-| `$ ./mate.sh generate-config-files`      | Generate all config files at once.                                       |
-| `$ ./mate.sh deploy-domains`             | Setup domains and subdomains (+SSL certificates).                        |
-| `$ ./mate.sh deploy-services`            | Deploy the Docker Compose services.                                      |
-| `$ ./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                      |
-| `$ ./mate.sh reload-domains`             | Reload all domains and subdomains nginx conf files.                      |
-| `$ ./mate.sh reload-service`             | Reload a service to fix an issue or get the latest version of the image. |
-| `$ ./mate.sh reload-stack`               | Redeploy all services and reload all domains.                            |
-| `$ ./mate.sh clean-stack`                | Remove all the config files.                                             |
-| `$ ./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                                |
+| Command                                | Description                                                              |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| `./mate.sh generate-env-file`          | Generate the `.env` file with SSL email configuration.                   |
+| `./mate.sh generate-domains-file`      | Generate the `domains.json` file with the domains and subdomains list.   |
+| `./mate.sh generate-config-files`      | Generate all config files at once.                                       |
+| `./mate.sh deploy-domains`             | Setup domains and subdomains (+SSL certificates).                        |
+| `./mate.sh deploy-services`            | Deploy the Docker Compose services.                                      |
+| `./mate.sh deploy-stack`               | Deploy both domains and services for the VPS stack.                      |
+| `./mate.sh reload-domains`             | Reload all domains and subdomains nginx conf files.                      |
+| `./mate.sh reload-service`             | Reload a service to fix an issue or get the latest version of the image. |
+| `./mate.sh reload-stack`               | Redeploy all services and reload all domains.                            |
+| `./mate.sh clean-stack`                | Remove all the config files.                                             |
+| `./mate.sh -h` or `$ ./mate.sh --help` | Display the help message.                                                |
 
 ## License
 
