@@ -75,7 +75,7 @@ function initDomainsSetup() {
   clearNginxConfDir
   registerDomains
 
-  docker-compose up --force-recreate -d nginx
+  docker compose up --force-recreate -d nginx
 }
 
 initDomainsSetup
