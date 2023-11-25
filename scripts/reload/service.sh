@@ -4,7 +4,7 @@ source utils/logger.sh
 
 logger CMD "Run 'reload-service' command"
 
-services=$(docker-compose config --services)
+services=$(docker compose config --services)
 
 PS3="Enter the number of the service you want to reload: "
 select SERVICE_NAME in $services
@@ -17,5 +17,5 @@ done
 
 logger DECISION "Reloading/recreating service $SERVICE_NAME"
 
-docker-compose pull $SERVICE_NAME
-docker-compose up -d --force-recreate $SERVICE_NAME
+docker compose pull $SERVICE_NAME
+docker compose up -d --force-recreate $SERVICE_NAME

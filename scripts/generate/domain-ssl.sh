@@ -31,7 +31,7 @@ function generateNewSSLCertificate() {
   
   mkdir -p "$CERTBOT_SERVICE_DATA_DIR/conf/live/$domain"
   
-  docker-compose run --rm --entrypoint "\
+  docker compose run --rm --entrypoint "\
     openssl req -x509 -nodes -newkey rsa:1024 -days 1\
     -keyout '$letsencrypt_live_path/privkey.pem' \
     -out '$letsencrypt_live_path/fullchain.pem' \
@@ -40,12 +40,12 @@ function generateNewSSLCertificate() {
   # Starting nginx
   logger SUB_CMD "### Starting nginx..."
   
-  docker-compose up --force-recreate -d nginx
+  docker compose up --force-recreate -d nginx
   
   # Deleting dummy certificate
   logger SUB_CMD "### Deleting dummy certificate for '$domain'..."
   
-  docker-compose run --rm --entrypoint "\
+  docker compose run --rm --entrypoint "\
     rm -Rf /etc/letsencrypt/live/$domain && \
     rm -Rf /etc/letsencrypt/archive/$domain && \
     rm -Rf /etc/letsencrypt/renewal/$domain.conf" certbot
@@ -64,7 +64,7 @@ function generateNewSSLCertificate() {
   # Enable staging mode if needed
   if [ $CERTBOT_LETSENCRYPT_STAGING != "0" ]; then staging_arg="--staging"; fi
   
-  docker-compose run --rm --entrypoint "\
+  docker compose run --rm --entrypoint "\
     certbot certonly --webroot -w /var/www/certbot \
       $staging_arg \
       $email_arg \
@@ -76,7 +76,7 @@ function generateNewSSLCertificate() {
   # Reloading nginx
   logger SUCCESS "### Reloading nginx..."
   
-  docker-compose exec nginx nginx -s reload
+  docker compose exec nginx nginx -s reload
 }
 
 function initDomainSSLGeneration() {
