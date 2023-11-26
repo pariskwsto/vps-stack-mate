@@ -6,14 +6,13 @@
 
 - [Getting Started](#getting-started)
   - [Install and Use](#install-and-use)
-  - [Make scripts executable (if needed)](#make-scripts-executable-if-needed)
+  - [Make scripts executable](#make-scripts-executable)
   - [Generate the configuration files](#generate-the-configuration-files)
   - [Deploy the stack](#deploy-the-stack)
   - [Continue with your setup](#continue-with-your-setup)
 - [API](#api)
 - [License](#license)
 - [Support](#support)
-- [Useful Links](#useful-links)
 
 This repository includes all the necessary files and configurations for a quick and easy VPS stack deployment. With just a few commands, you'll have your server up and running in minutes, saving you valuable time to focus on developing your web applications and services.
 
@@ -24,21 +23,18 @@ This repository includes all the necessary files and configurations for a quick 
 Start by cloning this repository in your VPS
 
 ```sh
-# via HTTPS
 git clone https://github.com/pariskwsto/vps-stack-mate.git
 ```
 
-then
+then cd into project root
 
 ```sh
-# cd into project root
 cd vps-stack-mate
 ```
 
-### Make scripts executable (if needed)
+### Make scripts executable
 
 ```sh
-# make `mate.sh` and `scripts/` executable
 chmod +x mate.sh && chmod -R +x scripts/
 ```
 
@@ -68,9 +64,10 @@ $ nano domains.json
 
 ### Deploy the stack
 
+Type the command below to deploy the stack
+
 ```sh
-# Type the command below to deploy the stack
-./mate.sh deploy-stack
+sudo ./mate.sh deploy-stack
 ```
 
 ### Continue with your setup
@@ -157,7 +154,3 @@ This repository is licensed under the [MIT License](https://opensource.org/licen
 ## Support
 
 For support and questions, please open an issue in the repository or contact the designer directly.
-
-## Useful Links
-
-- [Adding colors to Bash scripts](https://dev.to/ifenna__/adding-colors-to-bash-scripts-48g4/)
