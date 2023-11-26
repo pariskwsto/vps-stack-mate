@@ -54,6 +54,7 @@ elif [ "$1" == "deploy-stack" ]
 then
   scripts/deploy/services.sh "${@:2}"
   scripts/deploy/domains.sh "${@:2}"
+  scripts/reload/domains.sh "${@:2}"
 
 # Reload stack commands
 elif [ "$1" == "reload-domains" ]

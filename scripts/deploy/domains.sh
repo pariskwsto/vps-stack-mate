@@ -81,8 +81,8 @@ function copyNginxConfFile() {
   fi
 }
 
-function registerDomains() {
-  echo "Registering domains..."
+function registerDomainSSLs() {
+  echo "Registering domain SSLs..."
 
   json=$(cat $MATE_DOMAINS_FILE)
   json=$(echo "$json" | tr -d '[:space:]')
@@ -96,6 +96,21 @@ function registerDomains() {
 
     setupSSL $domain
     logger INFO "Finished setting up SSL for '$domain'"
+  done
+}
+
+function registerDomains() {
+  echo "Registering domains..."
+
+  json=$(cat $MATE_DOMAINS_FILE)
+  json=$(echo "$json" | tr -d '[:space:]')
+  json="${json#[}"
+  json="${json%]}"
+
+  IFS=','
+  for domain in $json; do
+    domain=$(echo "$domain" | tr -d '"')
+    logger CMD "================> $domain <================"
 
     copyNginxConfFile $domain
     logger INFO "Finished copying '$domain' nginx conf file"
@@ -104,6 +119,7 @@ function registerDomains() {
 
 function initDomainsSetup() {
   clearNginxConfDir
+  registerDomainSSLs
   registerDomains
 }
 
